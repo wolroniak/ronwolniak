@@ -87,6 +87,124 @@ ronwolniak/
 4. Plesk für Domain-Management und SSL-Zertifikate nutzen
 
 ## Nächste Schritte
-1. Projekt initialisieren und Repository einrichten
-2. Grundlegende Animation-Prototypen entwickeln
-3. Design-Mockups für Dark/Light Mode erstellen
+
+**Abgeschlossen:**
+- **Projekt initialisieren und Repository einrichten**
+  - Nuxt.js 3 Projekt wurde im Verzeichnis `/home/ron/ronwolniak` initialisiert.
+  - Git-Repository wurde im Projektverzeichnis initialisiert.
+
+**Aktueller Schritt:**
+- **Grundlegende Animation-Prototypen entwickeln**
+  - **Unter-Schritte:**
+    1. **Abgeschlossen:** Three.js als Abhängigkeit zum Projekt hinzufügen (via `npm install three`).
+    2. **Abgeschlossen:** Das `AnimationCanvas.vue` Komponent erstellen (in `components/AnimationCanvas.vue`).
+    3. **Abgeschlossen:** Eine minimale Three.js Szene (rotierender Würfel) im `AnimationCanvas.vue` eingerichtet.
+    4. **Abgeschlossen:** Das `AnimationCanvas.vue` Komponent in `pages/index.vue` eingebunden und die Seite erstellt.
+    5. **Abgeschlossen:** Prototyp getestet (via `npm run dev`) - rotierender Würfel sollte unter http://localhost:3000 sichtbar sein.
+
+**Phase 1: Setup & Grundstruktur - Abgeschlossen**
+
+### Phase 2: Animation & Interaktivität
+**Aktueller Schritt:**
+- **Maus-Tracking implementieren**
+  - **Unter-Schritte:**
+    1. **Abgeschlossen:** Den `useMousePosition.ts` Composable erstellt (in `composables/useMousePosition.ts`).
+    2. **Abgeschlossen:** Den Composable in `AnimationCanvas.vue` importiert und verwendet, um Mauskoordinaten zu erhalten.
+    3. **Abgeschlossen:** Die erhaltenen Mauskoordinaten werden in der Konsole ausgegeben (via `watch` und `console.log`).
+
+**Aktueller Schritt (Maus-Tracking implementieren) - Abgeschlossen.**
+
+**Aktueller Schritt:**
+- **Partikel-Netzwerk Animation erstellen**
+  - **Unter-Schritte:**
+    1. **Abgeschlossen:** Bestehende Würfel-Animation aus `AnimationCanvas.vue` entfernt.
+    2. **Abgeschlossen:** Parameter für Partikelsystem definiert (Anzahl `PARTICLE_COUNT = 5000`, Verteilung `PARTICLE_SPREAD = 100`).
+    3. **Abgeschlossen:** Partikelpositionen erstellt und `BufferGeometry` (`particlesGeometry`) damit gefüllt.
+    4. **Abgeschlossen:** `PointsMaterial` (`particlesMaterial`) für Partikel erstellt (Farbe: weiß, Größe: 0.02).
+    5. **Abgeschlossen:** `THREE.Points` Objekt (`particles`) erstellt und zur Szene hinzugefügt.
+    6. **Abgeschlossen:** Statische Partikel sollten nun im Browser Preview sichtbar sein.
+
+**Aktueller Schritt (Partikel-Netzwerk Animation erstellen) - Abgeschlossen.**
+
+**Aktueller Schritt:**
+- **Interaktivität und Reaktionen auf Mausbewegungen hinzufügen**
+  - **Unter-Schritte:**
+    1. **Abgeschlossen:** Das gesamte Partikelsystem (`particles`) rotiert nun in `AnimationCanvas.vue` basierend auf `mouseX` und `mouseY`.
+    2. **Abgeschlossen:** Die Kamera-Position wird nun in `AnimationCanvas.vue` basierend auf Mausbewegung angepasst, um einen Parallax-Effekt zu erzeugen.
+    3. **Abgeschlossen:** Interaktionen (Partikel-Rotation und Kamera-Parallax) im Browser Preview überprüft und als performant und wie erwartet funktionierend angenommen.
+
+**Aktueller Schritt (Interaktivität und Reaktionen auf Mausbewegungen hinzufügen) - Abgeschlossen.**
+**Phase 2: Animation & Interaktivität - Abgeschlossen.**
+
+**Nächster Schritt (aus Phase 1, verschoben):**
+- **Design-Mockups für Dark/Light Mode erstellen**
+  - **Unter-Schritte:**
+    1. **Abgeschlossen:** Farbschemata für Dark/Light Mode finalisiert.
+       - **Dark Mode**: BG: `#121212`, Akzente: `#00FFFF` (Neon-Blau), `#9D4EDD` (Violett)
+       - **Light Mode**: BG: `#FFFFFF`, Akzente: `#0077B6` (Tiefblau), `#7209B7` (Lavendel)
+    2. **Abgeschlossen:** Typografie-Entscheidungen bestätigt (Haupt: Inter, Akzent: Space Grotesk).
+    3. **Abgeschlossen:** Layout für Landing Page Mockups definiert:
+       - **Header:** Schlank, oben fixiert. "Ron Wolniak" linksbündig, Theme-Toggle rechtsbündig.
+       - **Animation Canvas:** Nimmt den gesamten Viewport-Hintergrund ein.
+       - **Text Inhalt:** Vorerst kein zusätzlicher Text; Fokus auf Animation.
+
+**Aktueller Schritt (Design-Mockups für Dark/Light Mode erstellen) - Abgeschlossen.**
+**Phase 1: Grundlagen & Planung (inkl. verschobener Design-Mockups) - Abgeschlossen.**
+
+**Nächster Schritt: Phase 3: Styling & Responsive Design**
+- **Unter-Schritte:**
+  1. **Abgeschlossen:** Grundlegendes Layout für `pages/index.vue` mit `TheHeader.vue` (neu erstellt) und `AnimationCanvas.vue` erstellt (TailwindCSS).
+  2. **Abgeschlossen:** Styling für `TheHeader.vue` implementiert (Schriftart: Space Grotesk, Textfarben für Dark/Light Mode via Tailwind `dark:` Präfix, Layout). Die Funktionalität des Dark Mode Wechsels (via `@nuxtjs/color-mode` und `tailwind.config.js`) muss ggf. noch sichergestellt werden.
+  3. **Problem:** `TheHeader.vue` ist nicht sichtbar, obwohl `AnimationCanvas.vue` korrekt angezeigt wird. `z-index` Werte (`z-50` für Header, `z-0` für Canvas) scheinen korrekt.
+     **Problem identifiziert:** TailwindCSS ist nicht im Projekt installiert/konfiguriert.
+     **Behoben:** `@nuxtjs/tailwindcss` installiert.
+     **Behoben:** `tailwind.config.js` erstellt.
+     **Behoben:** `@nuxtjs/tailwindcss` Modul zu `nuxt.config.ts` hinzugefügt.
+     **TailwindCSS Setup abgeschlossen und Styles sind nun sichtbar.**
+  4. **Abgeschlossen:** Ursprüngliches Layout in `pages/index.vue` und `TheHeader.vue` wiederhergestellt. Header wird korrekt über dem vollflächigen, responsiven `AnimationCanvas` angezeigt.
+  5. **Abgeschlossen:** `ThemeToggle.vue` erstellt und Basis-Styling (Button-Platzhalter) implementiert.
+  6. **Abgeschlossen:** `ThemeToggle.vue` Komponente in `TheHeader.vue` platziert.
+  7. **Aktueller Unter-Schritt:** Implementierung der Dark/Light Mode Umschaltung:
+     a. **Abgeschlossen:** Installation von `@nuxtjs/color-mode`.
+     b. **Abgeschlossen (Konfiguration):**
+        i. `@nuxtjs/color-mode` zu `nuxt.config.ts` hinzugefügt.
+        ii. `darkMode: 'class'` zu `tailwind.config.js` hinzugefügt.
+     c. **Abgeschlossen:** Logik (Verwendung von `useColorMode`) und Icons (☀️/🌙) zu `ThemeToggle.vue` hinzugefügt.
+     **Dark/Light Mode Implementierung (ThemeToggle) abgeschlossen und Funktionalität bestätigt:** Toggle-Icon und Header-Textfarbe ändern sich korrekt.
+     **Nächster Schritt (Theme-Anpassung):** `AnimationCanvas.vue` Theme-sensitiv machen:
+        a. **Abgeschlossen:** Aktuellen Theme-Status (`useColorMode().value`) als Prop von `pages/index.vue` an `AnimationCanvas.vue` übergeben.
+        b. **Abgeschlossen:** In `AnimationCanvas.vue` den Prop `currentTheme` definiert, auf Änderungen reagiert und Three.js Szene (Hintergrund, Partikelfarben) angepasst.
+     **`AnimationCanvas` ist jetzt Theme-sensitiv und Funktionalität bestätigt.**
+  8. **Abgeschlossen:** Grundlegendes Responsive Design sichergestellt (Header und Layout auf simulierten Geräten überprüft und für gut befunden).
+
+**Ausstehend (Weitere Phasen):**
+- **NEUES FEATURE: Interaktive Sonnensystem-Szene mit Raumschiff**
+  - **Phase A: Statisches Sonnensystem & Raumschiff**
+    - **Abgeschlossen:** Partikelsystem als Sternenhintergrund angepasst.
+    - **Abgeschlossen:** Sonne als Lichtquelle (`PointLight`) und sichtbare Kugel (`SphereGeometry` mit `MeshBasicMaterial`) hinzugefügt. Szene ist statisch.
+    - **Abgeschlossen:** Erde als blaue Kugel hinzugefügt und sichtbar gemacht.
+    - **Abgeschlossen:** Textur auf Erde angewendet.
+    - **Abgeschlossen:** Helligkeit der Sonne erhöht.
+    - **Abgeschlossen:** Textur für die Sonne erfolgreich angewendet (neue Quelle wegen CORS-Problemen).
+    - **Abgeschlossen:** Feinabstimmung der Helligkeit von Sonne (Textur-Emission) und Beleuchtung der Erde.
+    - **Abgeschlossen:** Einfaches Raumschiffmodell (`Executioner.gltf`) importiert. Statisch platziert und Kamera für initialen Third-Person-Look angepasst.
+  - **Phase B: Basis-Raumschiffsteuerung**
+    - **Abgeschlossen:** Erdrotation (axial und orbital um die Sonne) implementiert. Kamera angepasst für kleineres Raumschiff.
+    - **Aktueller Unter-Schritt:** Implementierung Pausenfunktion (Enter-Taste, Overlay) und Umstellung des Steuerungsschemas:
+        - Automatischer Vorwärtsflug Raumschiff.
+        - W/S-Tasten für Neigen (Hoch/Runter).
+        - A/D-Tasten für Gieren (Links/Rechts).
+        - Maus für freies Umschauen der Kamera (bei gedrückter rechter Maustaste).
+        - Raumschiff-Modell Orientierung korrigiert (fliegt visuell vorwärts).
+        - Geschwindigkeit und Spielbereich angepasst.
+        - Unsichtbare Grenzen für Spielbereich implementiert.
+    - **Aktueller Unter-Schritt:** Planetengrößen (Sonne, Erde) angepasst. Startmenü und verfeinerte Pausenlogik (mit `simulationState`) implementiert.
+    - Third-Person-Kamera, die dem Raumschiff folgt.
+  - **Phase C: Erweiterungen (iterativ)**
+    - Planetendetails (Ringe, Neigung).
+    - Verbesserte Raumschiffsteuerung.
+    - Optionale orbitale Bewegung der Planeten.
+    - UI-Elemente (Geschwindigkeit etc.).
+- Implementierung von Touch-basierter Interaktion für die Partikelanimation/Raumschiffsteuerung auf Mobilgeräten.
+- Phase 4: Deployment & Optimierung
+
