@@ -189,22 +189,69 @@ ronwolniak/
     - **Abgeschlossen:** Feinabstimmung der Helligkeit von Sonne (Textur-Emission) und Beleuchtung der Erde.
     - **Abgeschlossen:** Einfaches Raumschiffmodell (`Executioner.gltf`) importiert. Statisch platziert und Kamera für initialen Third-Person-Look angepasst.
   - **Phase B: Basis-Raumschiffsteuerung**
+    - **Status:** Weitgehend abgeschlossen, kleinere Anpassungen und Bugfixes bei Bedarf.
+
+  **Ziele:**
+  - Grundlegende Steuerung des Raumschiffs implementieren.
+  - Interaktion mit der Simulationsumgebung (Pause, Start).
+
+  **Fortschritt & Abgeschlossene Features:**
     - **Abgeschlossen:** Erdrotation (axial und orbital um die Sonne) implementiert. Kamera angepasst für kleineres Raumschiff.
-    - **Aktueller Unter-Schritt:** Implementierung Pausenfunktion (Enter-Taste, Overlay) und Umstellung des Steuerungsschemas:
+    - **Abgeschlossen:** Implementierung Pausenfunktion (Enter-Taste, Overlay) und Umstellung des Steuerungsschemas:
         - Automatischer Vorwärtsflug Raumschiff.
         - W/S-Tasten für Neigen (Hoch/Runter).
         - A/D-Tasten für Gieren (Links/Rechts).
-        - Maus für freies Umschauen der Kamera (bei gedrückter rechter Maustaste).
         - Raumschiff-Modell Orientierung korrigiert (fliegt visuell vorwärts).
         - Geschwindigkeit und Spielbereich angepasst.
         - Unsichtbare Grenzen für Spielbereich implementiert.
-    - **Aktueller Unter-Schritt:** Planetengrößen (Sonne, Erde) angepasst. Startmenü und verfeinerte Pausenlogik (mit `simulationState`) implementiert.
-    - Third-Person-Kamera, die dem Raumschiff folgt.
-  - **Phase C: Erweiterungen (iterativ)**
-    - Planetendetails (Ringe, Neigung).
-    - Verbesserte Raumschiffsteuerung.
-    - Optionale orbitale Bewegung der Planeten.
-    - UI-Elemente (Geschwindigkeit etc.).
-- Implementierung von Touch-basierter Interaktion für die Partikelanimation/Raumschiffsteuerung auf Mobilgeräten.
-- Phase 4: Deployment & Optimierung
+    - **Abgeschlossen:** Planetengrößen (Sonne, Erde) angepasst. Startmenü und verfeinerte Pausenlogik (mit `simulationState`) implementiert.
+    - **Abgeschlossen:** Keybinding-Menü im Pausenmenü implementiert. Tastenbelegungen für Raumschiffsteuerung sind nun anpassbar und werden im Local Storage gespeichert. Die Funktionalität wurde erfolgreich debugged und implementiert.
+    - **Abgeschlossen:** Crash-Screen implementiert: Zeigt an, mit welchem Himmelsobjekt das Raumschiff kollidiert ist (z.B. "Kollision mit Erde").
+### Phase C: UI/UX Verbesserungen
+  - **Status:** Abgeschlossen
 
+  **Ziele:**
+  - Verbesserung der Benutzererfahrung und visuellen Ästhetik der Simulations-Overlays.
+
+  **Fortschritt & Abgeschlossene Features:**
+    - **Abgeschlossen:** UI-Redesign für Dark Theme: Alle Menüs (Start, Pause, Crash-Screen, Keybinding-Einstellungen) haben nun ein dunkles, transparentes Design mit weißen/hellen Texten und Ghost-Style Buttons erhalten. Dies sorgt für eine moderne und kohärente "Deep Space"-Ästhetik innerhalb der Simulation.
+
+### Phase D: Inhaltliche Erweiterung & Optimierung
+  - **Status:** Laufend
+
+  **Ziele:**
+  - Hinzufügen neuer interaktiver Elemente und Spielinhalte für die Sonnensystem-Simulation.
+  - Optimierung der Performance und Vorbereitung auf mobile Nutzung.
+
+  **Als Nächstes in Phase D (Sonnensystem-Simulation):**
+    - **Geplant:** Implementierung eines einfachen Missionsziels oder Sammelobjekts (z.B. "Erreiche den Mars" oder sammle Weltraumschrott).
+    - **Geplant:** Hinzufügen von Soundeffekten (z.B. Triebwerksgeräusch, Kollision, Menü-Interaktionen).
+    - **Geplant:** Texturen für Planeten verbessern / hinzufügen (z.B. Mars, Venus, Merkur).
+    - **Geplant:** Mobile Optimierung: Performance und Steuerung für mobile Geräte verbessern (Touch-Controls evaluieren und ggf. implementieren für die Simulation).
+
+  **Zukünftige Ideen für die Sonnensystem-Simulation (Ausblick Phase E und darüber hinaus):**
+    - Erweiterung des Sonnensystems: Zusätzliche Planeten (Jupiter, Saturn etc.), Monde, Asteroidenfelder, Kometen, interstellare Nebel.
+    - Fortgeschrittene Raumschiff-Interaktionen: Andockmanöver an Raumstationen, Ressourcensammeln, einfache Handelsmechaniken.
+    - Physik-Verbesserungen: Gravitationseffekte von Planeten auf das Raumschiff (optional zuschaltbar für Realismus vs. Arcade-Feeling).
+    - Visuelle Effekte: Partikelsysteme für Triebwerke, Lens Flares, volumetrisches Licht.
+    - Story-Elemente / Lore: Kleine Hintergrundgeschichten oder Entdeckungen im All.
+    - Mini-Karte / Navigationssystem.
+    - Mehr Details auf Planetenoberflächen (sofern Landung implementiert wird).
+
+---
+
+## Ursprünglicher Plan (Phasen 3 & 4 - Webseite Allgemein)
+
+Die folgenden Phasen beziehen sich auf allgemeinere Aspekte der Webseite, außerhalb der reinen Sonnensystem-Simulation. Einige Punkte könnten bereits durch die Arbeit an der Simulation abgedeckt oder beeinflusst worden sein.
+
+### Phase 3: Styling & Responsive Design (Webseite Allgemein)
+1. Detailliertes Styling der Landing Page (falls mehr als die Simulation angezeigt werden soll).
+2. Responsive Design für alle Bildschirmgrößen sicherstellen.
+3. Animationsperformance für mobile Geräte optimieren (gilt auch für die Simulation, wird aber hier als allgemeiner Punkt für die Webseite betrachtet).
+4. Barrierefreiheit sicherstellen.
+
+### Phase 4: Deployment & Optimierung (Webseite Allgemein)
+1. Git-Repository einrichten (bereits geschehen).
+2. Deployment-Workflow konfigurieren (bereits geschehen).
+3. Performance-Optimierung (Lighthouse-Score verbessern).
+4. SEO-Optimierung.
